@@ -17,3 +17,20 @@ def tabular(align, data= [], lines = 1):
     
     tabular.write(f'\\end{{tabular}}')
     tabular.close()
+
+
+def table(position = 'h', centering = True, vspace = 0):
+    table = open('table.tex','w')
+    
+    begin = f'\\begin{{table}}[{position}]\n'
+    table.write(begin)
+
+    if centering == True:
+        table.write(f'\t\\centering\n')
+
+    table.write(f'\t\\label{{table1}}\n')
+    table.write(f'\t\\caption{{caption}}\n')
+    table.write(f'\t\\vspace{{{vspace}cm}}\n')
+
+    table.write(f'\\end{{table}}\n')
+    table.close()
