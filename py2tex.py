@@ -1,5 +1,7 @@
-def tabular(align, data= [], lines = 1):
-    tabular = open('tabular.tex','w')
+from datetime import datetime
+
+def tabular(align, data = [], lines = 1):
+    tabular = open('tabular' + str(datetime.today().strftime('%Y%m%d%H%M%S')) + '.tex','w')
     
     begin = f'\\begin{{tabular}}{{ {align} }}\n'
     tabular.write(begin)
