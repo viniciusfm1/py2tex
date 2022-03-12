@@ -1,7 +1,11 @@
 from datetime import datetime
 
-def tabular(align, data = [], lines = 1):
-    tabular = open('tabular' + str(datetime.today().strftime('%Y%m%d%H%M%S')) + '.tex','w')
+def tabular(align, data = [], lines = 1, filename = ''):
+
+    if not filename:
+        tabular = open('tabular' + str(datetime.today().strftime('%Y%m%d%H%M%S')) + '.tex','w')
+    else:
+        tabular = open(filename, 'w')
     
     begin = f'\\begin{{tabular}}{{ {align} }}\n'
     tabular.write(begin)
@@ -18,11 +22,12 @@ def tabular(align, data = [], lines = 1):
             tabular.write('\t'+cells+'\\\\\n')
     
     tabular.write(f'\\end{{tabular}}')
+    print(tabular.name)
     tabular.close()
 
 
 def table(position = 'h', centering = True, vspace = 0):
-    table = open('table.tex','w')
+    table = open('table' + str(datetime.today().strftime('%Y%m%d%H%M%S')) + '.tex','w')
     
     begin = f'\\begin{{table}}[{position}]\n'
     table.write(begin)
@@ -35,4 +40,5 @@ def table(position = 'h', centering = True, vspace = 0):
     table.write(f'\t\\vspace{{{vspace}cm}}\n')
 
     table.write(f'\\end{{table}}\n')
+    print(table.name)
     table.close()
