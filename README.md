@@ -1,2 +1,2 @@
 # py2tex
-Generate latex code from python
+Generate Latex code from python variables
